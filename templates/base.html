@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="icon" href="{% static 'images/fav.png' %}" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Varela+Round"
+    />
+    <title>{% block title %}The Weather App{% endblock title %}</title>
+    {% block css %}{% endblock css %}
+  </head>
+  <body>
+
+    <!-- Navbar -->
+    <nav>
+      <input type="checkbox" id="check" />
+      <label for="check" class="checkbtn"><i class="fas fa-bars"></i></label>
+      <label class="logo">TheForecastApp</label>
+      <ul>
+        <li href="#"><a class="active">Home</a></li>
+        <li href="#"><a>About</a></li>
+        <li href="#"><a>Status</a></li>
+      </ul>
+    </nav>
+    <!-- Endof Navbar -->
+
+    <!-- Content goes here -->
+    {% block content %} {% endblock content %}
+     <!-- Endof Content -->
+
+  </body>
+</html>

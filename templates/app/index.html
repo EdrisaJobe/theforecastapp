@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block css %}<link rel="stylesheet"href="{% static 'css/index.css' %}"/>{% endblock css %} 
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <input type="text" name="city" placeholder="City...">
+    <button type="submit">Search</button>
+</form>
+
+{% for d in data_list %}
+
+{% endfor %}
+
+{% endblock content %}
