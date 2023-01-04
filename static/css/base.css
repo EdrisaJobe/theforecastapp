@@ -6,7 +6,7 @@
 body {
   font-family: "Varela Round", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    background: rgb(71, 187, 233); 
+    background: rgb(140, 222, 255);
 }
 /* NAVBAR DESKTOP/MOBILE */
 .logo {
@@ -15,6 +15,11 @@ body {
   line-height: 80px;
   padding: 0 50px;
   font-weight: bold;
+  cursor: pointer; 
+}
+.logo a, .logo a:hover{
+  text-decoration: none;
+  color: #fff;
 }
 nav {
   background: rgb(140, 222, 255);
@@ -23,7 +28,7 @@ nav {
 }
 nav ul {
   float: right;
-  margin-right: 20px;
+  text-align: center;
 }
 nav ul li {
   display: inline-block;
@@ -35,9 +40,10 @@ nav ul li a {
   text-decoration: none;
   font-size: 18px;
 }
-a:hover, a.active {
+nav ul li a:hover, a.active {
   cursor: pointer;
-  color: rgb(37, 189, 249);
+  color: rgb(4, 175, 243);
+  box-shadow: 0px 2px 0px 0px #fff;
 }
 /* MOBILE */
 .checkbtn {
@@ -76,7 +82,7 @@ a:hover, a.active {
         left: -100%;
         text-align: center;
         transition: all 0.5s ease;
-        background: rgb(140, 222, 255);
+        background: rgb(195, 238, 255);
     }
     nav ul li{
         display: block;

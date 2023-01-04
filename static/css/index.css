@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: center;
+    margin: 5rem 20rem 0 20rem;
+    box-shadow: 0px 0px 5px 5px;
+    border-radius: 8px;
+}
+
+.card{
+    margin-left: 5rem;
+    color: #fff;
+}
+@media(max-width: 1000px){
+    .container{
+        display: block;
+        margin: 3rem 2rem 0 2rem ;
+
+    }
+    .card{
+        margin-left: 1rem;
+    }
+}

@@ -2,15 +2,50 @@
 {% load static %} 
 {% block css %}<link rel="stylesheet"href="{% static 'css/index.css' %}"/>{% endblock css %} 
 
+
 {% block content %}
 <form method="POST">
     {% csrf_token %}
     <input type="text" name="city" placeholder="City...">
     <button type="submit">Search</button>
 </form>
+{% if data_list %}
+    <h4>{{ data_list.sys.country }}</h4>
+    <h4>{{ data_list.coord.lat }}</h4>
+{% endif %}
 
-{% for d in data_list %}
+<section class="container">
+    <div class="card">
+        <h2>Sunday</h2>
+        <a href="#">View</a>
+    </div>
+    <div class="card">
+        <h2>Monday</h2>
+        <a href="#">View</a>
+    </div>
+    <div class="card">
+        <h2>Tuesday</h2>
+        <a href="#">View</a>
+    </div>
+    <div class="card">
+        <h2>Wednesday</h2>
+        <a href="#">View</a>
+    </div>
+    <div class="card">
+        <h2>Thursday</h2>
+        <a href="#">View</a>
+    </div>
+    <div class="card">
+        <h2>Friday</h2>
+        <a href="#">View</a>
+    </div>
+    <div class="card">
+        <h2>Saturday</h2>
+        <a href="#">View</a>
+    </div>
+    
+</section>
 
-{% endfor %}
+
 
 {% endblock content %}
