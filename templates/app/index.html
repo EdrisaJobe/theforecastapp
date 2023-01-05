@@ -1,51 +1,74 @@
 {% extends 'base.html' %} 
 {% load static %} 
-{% block css %}<link rel="stylesheet"href="{% static 'css/index.css' %}"/>{% endblock css %} 
-
+{% block css %}<link rel="stylesheet" href="{% static 'css/index.css' %}"/>{% endblock css %} 
 
 {% block content %}
 <form method="POST">
-    {% csrf_token %}
-    <input type="text" name="city" placeholder="City...">
-    <button type="submit">Search</button>
+  {% csrf_token %}
+  <input type="text" name="city" placeholder="Search for a city..." />
+  <button type="submit">Search</button>
 </form>
+
 {% if data_list %}
-    <h4>{{ data_list.sys.country }}</h4>
-    <h4>{{ data_list.coord.lat }}</h4>
-{% endif %}
+<!-- Row 1 -->
+<div class="row-1">
+  <div class="col">
+    <h3>{{ data_list.name }}, {{ data_list.sys.country }}</h3>
+    <h3>
+      {{ data_list.weather.0.description }},<span class="current">{{ data_list.main.temp }}°F</span>.
+    </h3>
+    <span class="min nl">Min</span>
+    <h2>
+      <span class="min">{{ data_list.main.temp_min }}°F</span>
+      <span class="bar">|</span></h2><span class="max nl"> Max</span><h2><span class="max">{{ data_list.main.temp_max }}°F</span></h2>
+    <p>Some example again</p>
+  </div>
+  <div class="col">
+    <h3>Description</h3>
+    <h3>
+      {{ data_list.name }}'s humidity,
+      <span class="max">{{ data_list.main.humidity }}%</span>.
+    </h3>
+    <span class="sea nl">Sea</span>
+    <h2>
+      <span class="sea"
+        >{% if data_list.main.sea_level %} {{ data_list.main.sea_level }} {% else %} None {% endif %}</span
+      >
+      <span class="bar">|</span>
+    </h2>
+    <span class="land nl">Land</span>
+    <h2>
+      <span class="land"
+        >{% if data_list.main.grnd_level %}{{ data_list.main.grnd_level }} {% else %} None {% endif %}</span
+      >
+    </h2>
+    <p>Has a pressure of <span class="min">{{ data_list.main.pressure }}Pa</span>.</p>
+  </div>
+  <div class="col">
+    <h3>{{ data_list.name }}'s Time</h3>
+    <h3> Timezone is <span class="sea">{{ data_list.timezone }}</span>.</h3>
+    <span class="min nl">Rise</span>
+    <h2>
+      <span class="min">{{ data_list.sys.sunrise }}°</span>
+    </h2><br>
+    <span class="max nl">Set</span>
+    <h2><span class="max">{{ data_list.sys.sunset }}°</span></h2>
+  </div>
+</div>
 
-<section class="container">
-    <div class="card">
-        <h2>Sunday</h2>
-        <a href="#">View</a>
-    </div>
-    <div class="card">
-        <h2>Monday</h2>
-        <a href="#">View</a>
-    </div>
-    <div class="card">
-        <h2>Tuesday</h2>
-        <a href="#">View</a>
-    </div>
-    <div class="card">
-        <h2>Wednesday</h2>
-        <a href="#">View</a>
-    </div>
-    <div class="card">
-        <h2>Thursday</h2>
-        <a href="#">View</a>
-    </div>
-    <div class="card">
-        <h2>Friday</h2>
-        <a href="#">View</a>
-    </div>
-    <div class="card">
-        <h2>Saturday</h2>
-        <a href="#">View</a>
-    </div>
-    
-</section>
-
-
-
-{% endblock content %}
+<!-- Row 2 -->
+<div class="row-2">
+  <div class="col">
+    <h3>Coordinates</h3>
+    <h3>{{ data_list.name }}'s coords are</h3>
+    <span class="min nl">Lat</span>
+    <h2>
+      <span class="min">{{ data_list.coord.lat }}°</span>
+      <span class="bar">|</span>
+    </h2>
+    <span class="max nl">Lon</span>
+    <h2><span class="max">{{ data_list.coord.lon }}°</span></h2>
+    <p>Some example again</p>
+  </div>
+</div>
+{% endif %} {% endblock content %}
