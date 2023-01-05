@@ -20,3 +20,7 @@ def index(request):
             return redirect('index')
 
     return render(request, 'app/index.html', {'data_list':data_list})
+
+def about(request):
+    
+    return render(request, 'app/about.html')

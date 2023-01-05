@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}<link rel="stylesheet" href="{% static 'css/about.css' %}">{% endblock css %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="row">
+        <div class="image">
+            <img src="{% static 'images/weather.jpg' %}" alt="image">
+        </div>
+        <div class="content">
+            <h1>About Us</h1>
+            <h2>What is this app?</h2>
+            <p>This app is imply a way to display current weather patterns in 
+               realtime. It's made simplistic for all to use with ease and
+               provides for a simple and fast solution into checking the weather 
+               information. How was it made you may ask, well we pull data from
+               the popular API <a href="https://openweathermap.org/api" target="_blank">OpenweathermapAPI</a> and grab all the current information,
+               we then import that data into the HTML template to display to users. Again,
+               all the data is up to date and reported at live time so no need to feel
+               unsure about getting accurate readings. That's all we do, as displayed
+               by the simplistic homepage and user friendly input box which allows you to input
+               not only cities but countries, continents, and states all within a simple searchbox.
+               Lastly and best of all we don't require
+               any user information so everything 100% secure, no storing of information
+               besides cookies to make the user experience easier, thanks for using our app! </p>
+        </div>
+    </div>
+</div>
+{% endblock content %}
