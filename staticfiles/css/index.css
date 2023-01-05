@@ -1,0 +1,139 @@
+form {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+.row-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 100px;
+}
+.row-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 3rem;
+}
+
+.current{
+  color: #043b8d;
+}
+.min{
+  color: rgb(187, 255, 167);
+}
+.max{
+  color: #ff8082;
+}
+.sea{
+  color: #043b8d;
+}
+.land{
+  color: #5dc000;
+}
+
+h2{
+  color: #fff;
+  display: inline;
+}
+
+.col {
+  flex-basis: 40%;
+  position: relative;
+  margin-left: 8rem;
+}
+.col h2 {
+  font-size: 54px;
+}
+.col h3 {
+  font-size: 30px;
+  color: #fff;
+  font-weight: 100;
+  margin: 20px 0 10px;
+}
+.col p {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 100;
+}
+.col::after {
+  content: "";
+  width: 10px;
+  height: 100%;
+  background: linear-gradient(#ff469f, #ff6062);
+  position: absolute;
+  left: -40px;
+  top: 8px;
+}
+
+input {
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+input:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #86b7fe;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+button {
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  background-color: #4299e1;
+  border-radius: 4px;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  line-height: 26px;
+  margin-left: 1rem;
+}
+button:hover {
+  background-color: #6dbdff;
+}
+
+@media(max-width: 1280px){
+    .humidity, .coords, .visibility{
+        display: none;
+    }
+    .bar{
+        display: none;
+    }
+    .nl{
+        display: flex;
+    }
+}
+@media (max-width: 1000px) {
+  .bar{
+    display: none;
+  }
+  .row-1 {
+    display: inline-block;
+    flex-wrap: wrap;
+  }
+  .row-2 {
+    display: inline-block;
+    flex-wrap: wrap;
+  }
+  .nl{
+    display: flex;
+  }
+  .col {
+    margin-bottom: 2rem;
+    z-index: -1;
+  }
+}
