@@ -6,6 +6,7 @@ import requests
 
 def index(request):
 
+    data_list = {}
     if request.method == "POST":
         
         try:
@@ -16,6 +17,6 @@ def index(request):
 
             data_list = api_url.json()
         except:
-            return redirect('/')
+            return redirect('index')
 
     return render(request, 'app/index.html', {'data_list':data_list})

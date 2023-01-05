@@ -14,6 +14,7 @@ form {
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
+  margin-bottom: 3rem;
 }
 
 .current{
@@ -105,6 +106,17 @@ button:hover {
   background-color: #6dbdff;
 }
 
+@media(max-width: 1280px){
+    .humidity, .coords, .visibility{
+        display: none;
+    }
+    .bar{
+        display: none;
+    }
+    .nl{
+        display: flex;
+    }
+}
 @media (max-width: 1000px) {
   .bar{
     display: none;

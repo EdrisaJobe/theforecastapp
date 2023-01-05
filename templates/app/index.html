@@ -11,22 +11,26 @@
 
 {% if data_list %}
 <!-- Row 1 -->
+
+<!-- CURRENT -->
 <div class="row-1">
   <div class="col">
     <h3>{{ data_list.name }}, {{ data_list.sys.country }}</h3>
     <h3>
-      {{ data_list.weather.0.description }},<span class="current">{{ data_list.main.temp }}°F</span>.
+      {{ data_list.weather.0.description }}, <span class="current">{{ data_list.main.temp }}°F</span>.
     </h3>
     <span class="min nl">Min</span>
     <h2>
       <span class="min">{{ data_list.main.temp_min }}°F</span>
       <span class="bar">|</span></h2><span class="max nl"> Max</span><h2><span class="max">{{ data_list.main.temp_max }}°F</span></h2>
-    <p>Some example again</p>
+    <p>We can assume <span class="sea">{{ data_list.weather.0.main }}</span> in {{ data_list.name }}.</p>
   </div>
+
+  <!-- DESCRIPTION -->
   <div class="col">
     <h3>Description</h3>
     <h3>
-      {{ data_list.name }}'s humidity,
+      <span class="humidity">{{ data_list.name }}'s</span>humidity,
       <span class="max">{{ data_list.main.humidity }}%</span>.
     </h3>
     <span class="sea nl">Sea</span>
@@ -44,6 +48,8 @@
     </h2>
     <p>Has a pressure of <span class="min">{{ data_list.main.pressure }}Pa</span>.</p>
   </div>
+
+  <!-- TIMEZONE -->
   <div class="col">
     <h3>{{ data_list.name }}'s Time</h3>
     <h3> Timezone is <span class="sea">{{ data_list.timezone }}</span>.</h3>
@@ -57,10 +63,12 @@
 </div>
 
 <!-- Row 2 -->
+
+<!--- COORDINATES -->
 <div class="row-2">
   <div class="col">
     <h3>Coordinates</h3>
-    <h3>{{ data_list.name }}'s coords are</h3>
+    <h3><span class="coords">{{ data_list.name }}'s</span> coords are</h3>
     <span class="min nl">Lat</span>
     <h2>
       <span class="min">{{ data_list.coord.lat }}°</span>
@@ -68,7 +76,35 @@
     </h2>
     <span class="max nl">Lon</span>
     <h2><span class="max">{{ data_list.coord.lon }}°</span></h2>
-    <p>Some example again</p>
+    <p>{{ data_list.name }} coords determine <span class="sea">{{ data_list.weather.0.description }}</span>. </p>
   </div>
+
+  <!-- VISIBILITY -->
+  <div class="col">
+    <h3>Visibility</h3>
+    <h3><span class="visibility">{{ data_list.name }}'s </span>visibility is <span class="sea">{{ data_list.visibility }}m</span>.</h3>
+    <span class="min nl">Wind Speed</span>
+    <h2>
+      <span class="min">{% if data_list.wind.speed %}{{ data_list.wind.speed }}m/s {% else %}None{% endif %}</span>
+      <span class="bar">|</span>
+    </h2>
+    <span class="max nl">Wind Gust</span>
+    <h2><span class="max">{% if data_list.wind.gust %}{{ data_list.wind.gust }}m/s {% else %}None{% endif %}</span></h2>
+    <p>Be mindful of visibility under <span class="max">400m</span>!</p>
+  </div>
+
+  <!-- EXTRA INFO -->
+  <div class="col">
+    <h3>Extra Information</h3>
+    <h3>Rain clouds, {% if data_list.clouds.all %} <span class="sea">{{ data_list.clouds.all }}%</span>.{% else %}None.{% endif %}</h3>
+    <span class="min nl">Feels like</span>
+    <h2>
+      <span class="min">{% if data_list.main.feels_like %}{{ data_list.main.feels_like }}°F  {% else %}None.{% endif %}</span>
+      <span class="bar">|</span>
+    </h2>
+    <span class="max nl">Weather</span>
+    <h2><span class="max">{{ data_list.weather.0.main }}</span></h2>
+    <p>{% if data_list.main.feels_like >= 50 %}So {{ data_list.name }} currently has <span class="min">good</span> weather.{% else %}So {{ data_list.name }} currently has <span class="max">bad</span> weather.{% endif %}</p>   
+  </div>  
 </div>
 {% endif %} {% endblock content %}
