@@ -38,6 +38,10 @@ h2{
   display: inline;
 }
 
+.el{
+  display: flex;
+}
+
 .col {
   flex-basis: 40%;
   position: relative;
