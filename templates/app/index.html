@@ -101,7 +101,7 @@
     </h2>
     <span class="max nl el">Weather</span>
     <h2><span class="max">{{ data_list.weather.0.main }}</span></h2>
-    <p>{% if data_list.main.feels_like >= 50 %}So {{ data_list.name }} currently has <span class="min">good</span> weather.{% else %}So {{ data_list.name }} currently has <span class="max">bad</span> weather.{% endif %}</p>   
+    <p>{% if data_list.main.feels_like >= 20 %}So {{ data_list.name }} currently has <span class="min">good</span> weather.{% else %}So {{ data_list.name }} currently has <span class="max">bad</span> weather.{% endif %}</p>   
   </div>  
 </div>
 {% endif %} {% endblock content %}
